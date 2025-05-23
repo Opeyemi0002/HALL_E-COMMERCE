@@ -11,7 +11,6 @@ const ENV = process.env.NODE_ENV;
   imports: [
     ConfigModule.forRoot({
       isGlobal: true,
-      //envFilePath: !ENV ? '../../../.env.test' : `../../../.env.${ENV}`,
       envFilePath: path.join(
         __dirname,
         '..',
