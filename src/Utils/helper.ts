@@ -1,4 +1,4 @@
-import { HttpException } from '@nestjs/common';
+import { HttpException, HttpStatus } from '@nestjs/common';
 
 // convert
 export const getIntValidation = (
@@ -9,6 +9,32 @@ export const getIntValidation = (
   return isNaN(parsedValue) ? parseInt(value, 10) : parsedValue; // Return value if NaN
 };
 
-export const successResponse = () => ({});
+export const successResponse = (
+  statusCode: number = HttpStatus.OK,
+  message: string,
+  data: any = null,
+) => {
+  //return standard API success response
+  return {
+    status: 'success',
+    statusCode,
+    message,
+    data,
+  };
+};
 
-export const errorResponse = () => ({});
+export const errorResponse = (
+  message: string,
+  statusCode: number = HttpStatus.BAD_REQUEST,
+  errorType: string = 'BAD_REQUEST',
+) => {
+  //return standard API error response
+  throw new HttpException(
+    {
+      statusCode,
+      message,
+      error: errorType,
+    },
+    statusCode,
+  );
+};
