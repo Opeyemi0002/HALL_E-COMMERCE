@@ -1,5 +1,6 @@
 import { registerAs } from '@nestjs/config';
 import { getIntValidation } from 'src/Utils/helper';
+
 export default registerAs('database', () => ({
   host: process.env.DB_HOST,
   port: getIntValidation(process.env.DB_PORT, '5432'),
