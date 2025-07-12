@@ -6,19 +6,32 @@ import {
   IsString,
   Matches,
 } from 'class-validator';
+import { ApiProperty } from '@nestjs/swagger';
 import { userRole } from '../enum/userrole.enum';
 
 export class UserDto {
   @IsString()
   @IsNotEmpty()
+  @ApiProperty({
+    description: 'input your first name',
+    example: 'John',
+  })
   firstName: string;
 
   @IsString()
   @IsNotEmpty()
+  @ApiProperty({
+    description: 'input your last name or surname',
+    example: 'Wick',
+  })
   lastName: string;
 
   @IsEmail()
   @IsNotEmpty()
+  @ApiProperty({
+    description: 'input your email',
+    example: 'johnwick@hotmail.com',
+  })
   email: string;
 
   @IsString()

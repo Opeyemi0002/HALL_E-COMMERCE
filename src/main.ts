@@ -6,12 +6,13 @@ import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule, {
-    logger: WinstonModule.createLogger(winstonConfig),
+    logger: WinstonModule.createLogger(winstonConfig), //centralised logging setup
   });
 
-  /**
-   *swagger configuration
-   */
+  // 🔧 Set up Swagger/OpenAPI documentation for API consumers and developers.
+  // This should only be exposed in development or admin environments.
+  // Accessible at /api path.
+
   const config = new DocumentBuilder()
     .setTitle('HALL-ECOMMERCE')
     .setDescription('use the base URL as http://localhost:3000')

@@ -7,6 +7,6 @@ export default registerAs('database', () => ({
   userName: process.env.DB_USERNAME,
   password: process.env.DB_PASSWORD,
   name: process.env.DB_NAME,
-  autoLoadEntities: process.env.DB_AUTOLOAD_ENTITIES === 'true' ? true : false,
+  autoLoadEntities: process.env.DB_AUTOLOAD_ENTITIES === 'true',
   sync: process.env.DB_SYNC === 'true' ? true : false,
 }));

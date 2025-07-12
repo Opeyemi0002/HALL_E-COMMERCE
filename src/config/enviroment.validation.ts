@@ -10,6 +10,6 @@ export default Joi.object({
   DB_NAME: Joi.string().required(),
   DB_USERNAME: Joi.string().required(),
   DB_PASSWORD: Joi.string().required(),
-  DB_AUTOLOAD_ENTITIES: Joi.string().required(),
-  DB_SYNC: Joi.string().required(),
+  DB_AUTOLOAD_ENTITIES: Joi.string().valid('true', 'false').required(),
+  DB_SYNC: Joi.string().valid('true', 'false').required(),
 });
