@@ -43,7 +43,6 @@ export class User extends BaseEntity {
     type: 'varchar',
     nullable: true,
     unique: true,
-    length: 15,
   })
   phoneNumber: string;
 

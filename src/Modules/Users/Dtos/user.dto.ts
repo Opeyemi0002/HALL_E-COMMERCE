@@ -5,33 +5,39 @@ import {
   IsOptional,
   IsString,
   Matches,
+  MaxLength,
+  MinLength,
 } from 'class-validator';
 import { ApiProperty } from '@nestjs/swagger';
 import { userRole } from '../enum/userrole.enum';
 
-export class UserDto {
-  @IsString()
-  @IsNotEmpty()
+export class CreateUserDto {
   @ApiProperty({
     description: 'input your first name',
     example: 'John',
   })
-  firstName: string;
-
   @IsString()
   @IsNotEmpty()
+  @MinLength(3)
+  @MaxLength(96)
+  firstName: string;
+
   @ApiProperty({
     description: 'input your last name or surname',
     example: 'Wick',
   })
+  @IsString()
+  @IsNotEmpty()
+  @MinLength(3)
+  @MaxLength(96)
   lastName: string;
 
-  @IsEmail()
-  @IsNotEmpty()
   @ApiProperty({
     description: 'input your email',
     example: 'johnwick@hotmail.com',
   })
+  @IsEmail()
+  @IsNotEmpty()
   email: string;
 
   @IsString()

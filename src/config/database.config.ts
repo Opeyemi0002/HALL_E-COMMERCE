@@ -1,5 +1,5 @@
 import { registerAs } from '@nestjs/config';
-import { getIntValidation } from 'src/Utils/helper';
+import { getIntValidation } from 'src/common/helper/int-transform.helper';
 
 export default registerAs('database', () => ({
   host: process.env.DB_HOST,
@@ -8,5 +8,5 @@ export default registerAs('database', () => ({
   password: process.env.DB_PASSWORD,
   name: process.env.DB_NAME,
   autoLoadEntities: process.env.DB_AUTOLOAD_ENTITIES === 'true',
-  sync: process.env.DB_SYNC === 'true' ? true : false,
+  sync: process.env.DB_SYNC === 'true',
 }));
